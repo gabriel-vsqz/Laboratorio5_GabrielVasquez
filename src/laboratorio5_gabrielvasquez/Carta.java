@@ -8,17 +8,19 @@ public class Carta {
     private String objetivo;
     private String velocidad;
     private int elixir;
+    private String rango;
 
     public Carta() {
     }
 
-    public Carta(String nombre, int damage, int hp, String objetivo, String velocidad, int elixir) {
+    public Carta(String nombre, int damage, int hp, String objetivo, String velocidad, int elixir, String rango) {
         this.nombre = nombre;
         this.damage = damage;
         this.hp = hp;
         this.objetivo = objetivo;
         this.velocidad = velocidad;
         this.elixir = elixir;
+        this.rango = rango;
     }
 
     public String getNombre() {
@@ -67,6 +69,14 @@ public class Carta {
 
     public void setElixir(int elixir) {
         this.elixir = elixir;
+    }
+
+    public String getRango() {
+        return rango;
+    }
+
+    public void setRango(String rango) {
+        this.rango = rango;
     }
 
     @Override

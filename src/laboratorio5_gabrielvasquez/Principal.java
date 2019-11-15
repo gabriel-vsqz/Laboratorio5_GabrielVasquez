@@ -34,12 +34,19 @@ public class Principal extends javax.swing.JFrame {
         pfr_contrasena = new javax.swing.JPasswordField();
         jdc_nacimiento = new com.toedter.calendar.JDateChooser();
         br_color = new javax.swing.JButton();
+        jd_VentanaUsuario = new javax.swing.JDialog();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         tf_username = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pf_password = new javax.swing.JPasswordField();
         b_enter = new javax.swing.JButton();
+
+        jd_Registro.setTitle("Registro");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 40)); // NOI18N
         jLabel4.setText("Registro");
@@ -70,9 +77,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        br_color.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                br_colorActionPerformed(evt);
+        br_color.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                br_colorMouseClicked(evt);
             }
         });
 
@@ -151,14 +158,39 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(53, 53, 53))
         );
 
+        jMenu1.setText("Home");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Cartas");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Clan");
+        jMenuBar1.add(jMenu3);
+
+        jd_VentanaUsuario.setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout jd_VentanaUsuarioLayout = new javax.swing.GroupLayout(jd_VentanaUsuario.getContentPane());
+        jd_VentanaUsuario.getContentPane().setLayout(jd_VentanaUsuarioLayout);
+        jd_VentanaUsuarioLayout.setHorizontalGroup(
+            jd_VentanaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        jd_VentanaUsuarioLayout.setVerticalGroup(
+            jd_VentanaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 577, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 50)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LOGIN");
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel2.setText("Usuario");
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel3.setText("Contraseña");
 
         b_enter.setText("Ingresar");
@@ -178,27 +210,27 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(164, 164, 164)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tf_username)
                             .addComponent(pf_password, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(219, 219, 219)
-                        .addComponent(b_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(b_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(jLabel2)))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(tf_username, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,7 +238,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(pf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(b_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -237,6 +269,11 @@ public class Principal extends javax.swing.JFrame {
             tf_username.setText("");
             pf_password.setText("");
             JOptionPane.showMessageDialog(this, "Bienvenido " + x.getNombre());
+            this.setVisible(false);
+            jd_VentanaUsuario.setModal(true);
+            jd_VentanaUsuario.pack();
+            jd_VentanaUsuario.setLocationRelativeTo(this);
+            jd_VentanaUsuario.setVisible(true);
         }
         
     }//GEN-LAST:event_b_enterMouseClicked
@@ -256,7 +293,8 @@ public class Principal extends javax.swing.JFrame {
                 usuario = tfr_usuario.getText();
                 contra = pfr_contrasena.getText();
                 fecha = jdc_nacimiento.getDate();
-                edad = 1;
+                int año = (new Date()).getYear();
+                edad = año - fecha.getYear();
                 color = br_color.getBackground();
                 usuarios.add(new Usuario(nombre, apellido, usuario, contra, fecha, edad, color));
 
@@ -268,6 +306,10 @@ public class Principal extends javax.swing.JFrame {
                 br_color.setBackground(null);
                 JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
                 jd_Registro.setVisible(false);
+                jd_VentanaUsuario.setModal(true);
+                jd_VentanaUsuario.pack();
+                jd_VentanaUsuario.setLocationRelativeTo(this);
+                jd_VentanaUsuario.setVisible(true);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -275,9 +317,9 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_b_registerMouseClicked
 
-    private void br_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_br_colorActionPerformed
+    private void br_colorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_br_colorMouseClicked
         br_color.setBackground(JColorChooser.showDialog(this, "Seleccione un color", null));
-    }//GEN-LAST:event_br_colorActionPerformed
+    }//GEN-LAST:event_br_colorMouseClicked
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -323,7 +365,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JDialog jd_Registro;
+    private javax.swing.JDialog jd_VentanaUsuario;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JPasswordField pfr_contrasena;

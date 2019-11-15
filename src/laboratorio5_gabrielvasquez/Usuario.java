@@ -100,7 +100,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", apellido=" + apellido + ", user=" + user + ", password=" + password + ", nacimiento=" + nacimiento + ", edad=" + edad + ", color=" + color + ", mazos=" + mazos + '}';
+        return nombre;
     }
     
 }
