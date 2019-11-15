@@ -1,9 +1,5 @@
 package laboratorio5_gabrielvasquez;
 
-/**
- *
- * @author Gabriel Vasquez
- */
 public class Principal extends javax.swing.JFrame {
 
     public Principal() {
