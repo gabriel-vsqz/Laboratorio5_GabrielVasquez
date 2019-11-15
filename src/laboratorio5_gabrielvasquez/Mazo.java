@@ -1,21 +1,17 @@
 package laboratorio5_gabrielvasquez;
 
+import java.util.ArrayList;
 
 public class Mazo {
  
     private int coste;
-    private Carta c1;
-    private Carta c2;
-    private Carta c3;
+    private ArrayList<Carta> cartas = new ArrayList();
 
     public Mazo() {
     }
 
-    public Mazo(int coste, Carta c1, Carta c2, Carta c3) {
+    public Mazo(int coste) {
         this.coste = coste;
-        this.c1 = c1;
-        this.c2 = c2;
-        this.c3 = c3;
     }
 
     public int getCoste() {
@@ -26,33 +22,17 @@ public class Mazo {
         this.coste = coste;
     }
 
-    public Carta getC1() {
-        return c1;
+    public ArrayList<Carta> getCartas() {
+        return cartas;
     }
 
-    public void setC1(Carta c1) {
-        this.c1 = c1;
-    }
-
-    public Carta getC2() {
-        return c2;
-    }
-
-    public void setC2(Carta c2) {
-        this.c2 = c2;
-    }
-
-    public Carta getC3() {
-        return c3;
-    }
-
-    public void setC3(Carta c3) {
-        this.c3 = c3;
+    public void setCartas(ArrayList<Carta> cartas) {
+        this.cartas = cartas;
     }
 
     @Override
     public String toString() {
-        return "Mazo{" + "coste=" + coste + ", c1=" + c1 + ", c2=" + c2 + ", c3=" + c3 + '}';
+        return "Mazo{" + "coste=" + coste + ", cartas=" + cartas + '}';
     }
-    
+
 }

@@ -34,9 +34,9 @@ public class Usuario {
         this.nacimiento = nacimiento;
         this.edad = edad;
         this.color = color;
-        this.m1 = m1;
-        this.m2 = m2;
-        this.m3 = m3;
+        this.m1 = new Mazo();
+        this.m2 = new Mazo();
+        this.m3 = new Mazo();
     }
 
     public String getNombre() {

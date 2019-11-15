@@ -12,7 +12,7 @@ public class Minipekka extends Carta {
 
     @Override
     public String toString() {
-        return super.toString() + "Minipekka{" + '}';
+        return "Minipekka - " + super.toString();
     }
     
 }

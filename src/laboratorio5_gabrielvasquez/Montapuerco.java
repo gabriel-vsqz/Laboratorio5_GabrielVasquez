@@ -12,7 +12,7 @@ public class Montapuerco extends Carta {
 
     @Override
     public String toString() {
-        return super.toString() + "Montapuerco{" + '}';
+        return "Montapuerco - " + super.toString();
     }
     
 }

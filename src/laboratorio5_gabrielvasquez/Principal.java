@@ -46,7 +46,12 @@ public class Principal extends javax.swing.JFrame {
         js_dano = new javax.swing.JSpinner();
         js_hp = new javax.swing.JSpinner();
         tf_nombrecarta = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        b_create = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        box_mazo = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        jLabel17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tf_username = new javax.swing.JTextField();
@@ -190,66 +195,112 @@ public class Principal extends javax.swing.JFrame {
 
         js_hp.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        jButton1.setText("Crear");
+        b_create.setText("Crear");
+        b_create.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_createMouseClicked(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        jLabel16.setText("Mazo");
+
+        box_mazo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mazo 1", "Mazo 2", "Mazo 3" }));
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Mazos");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jTree1);
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("Mazos");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(box_tipo, 0, 220, Short.MAX_VALUE)
-                            .addComponent(tf_nombrecarta)))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(35, 35, 35)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(js_hp, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(js_dano))
+                                .addComponent(box_mazo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(224, 224, 224))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addGap(21, 21, 21)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                            .addContainerGap()
+                                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(35, 35, 35)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tf_nombrecarta, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(box_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(107, 107, 107)
+                                    .addComponent(b_create, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(js_hp)
-                    .addComponent(js_dano)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                .addGap(680, 680, 680))
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(197, 197, 197)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
+                .addGap(96, 96, 96))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_nombrecarta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(box_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(js_dano, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(js_hp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_nombrecarta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(box_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(js_dano, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(js_hp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(box_mazo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addComponent(b_create, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))))
         );
 
         jTabbedPane2.addTab("Cartas", jPanel3);
@@ -262,7 +313,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 510, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Clan", jPanel4);
@@ -373,13 +424,13 @@ public class Principal extends javax.swing.JFrame {
             tf_username.setText("");
             pf_password.setText("");
             JOptionPane.showMessageDialog(this, "Bienvenido " + x.getNombre());
+            dude = x;
             this.setVisible(false);
             jd_VentanaUsuario.setModal(true);
             jd_VentanaUsuario.pack();
             jd_VentanaUsuario.setLocationRelativeTo(this);
             jd_VentanaUsuario.setVisible(true);
         }
-        
     }//GEN-LAST:event_b_enterMouseClicked
 
     private void b_registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_registerMouseClicked
@@ -401,7 +452,7 @@ public class Principal extends javax.swing.JFrame {
                 edad = año - fecha.getYear();
                 color = br_color.getBackground();
                 usuarios.add(new Usuario(nombre, apellido, usuario, contra, fecha, edad, color, null, null, null));
-
+                
                 tfr_nombre.setText("");
                 tfr_apellido.setText("");
                 tfr_usuario.setText("");
@@ -409,11 +460,14 @@ public class Principal extends javax.swing.JFrame {
                 jdc_nacimiento.setCalendar(null);
                 br_color.setBackground(null);
                 JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
+                
                 jd_Registro.setVisible(false);
-                jd_VentanaUsuario.setModal(true);
-                jd_VentanaUsuario.pack();
-                jd_VentanaUsuario.setLocationRelativeTo(this);
-                jd_VentanaUsuario.setVisible(true);
+                
+                this.setVisible(true);
+//                jd_VentanaUsuario.setModal(true);
+//                jd_VentanaUsuario.pack();
+//                jd_VentanaUsuario.setLocationRelativeTo(this);
+//                jd_VentanaUsuario.setVisible(true);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -424,6 +478,115 @@ public class Principal extends javax.swing.JFrame {
     private void br_colorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_br_colorMouseClicked
         br_color.setBackground(JColorChooser.showDialog(this, "Seleccione un color", null));
     }//GEN-LAST:event_br_colorMouseClicked
+
+    private void b_createMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_createMouseClicked
+        String x = (String)box_tipo.getSelectedItem();
+        
+        switch ((String)box_mazo.getSelectedItem()) {
+            
+            case "Mazo 1":
+                if (dude.getM1().getCartas().size() <= 3) {
+                    switch (x) {
+                        case "Minipekka":
+                            dude.getM1().getCartas().add(new Minipekka(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Especial"));
+                            break;
+                        case "Montapuerco":
+                            dude.getM1().getCartas().add(new Montapuerco(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Especial"));
+                            break;
+                        case "Golem":
+                            dude.getM1().getCartas().add(new Golem(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Baja",8,"Epica"));
+                            break;
+                        case "Leñador":
+                            dude.getM1().getCartas().add(new Leñador(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Legendaria"));
+                            break;
+                        case "Dragon Infernal":
+                            dude.getM1().getCartas().add(new Dragon_Infernal(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Media",4,"Legendaria"));
+                            break;
+                        case "Dragon":
+                            dude.getM1().getCartas().add(new Dragon(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Media",4,"Epica"));
+                            break;
+                        case "Gigante Noble":
+                            dude.getM1().getCartas().add(new Gigante_Noble(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Media",6,"Comun"));
+                            break;
+                        case "Pandilla de Duendes":
+                            dude.getM1().getCartas().add(new Pandilla_Duendes(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Alta",3,"Comun"));
+                            break;
+                    }
+                    JOptionPane.showMessageDialog(this, "Carta creada exitosamente");
+                } else {
+                    JOptionPane.showMessageDialog(this, "El mazo ya está lleno");
+                }
+                break;
+                
+            case "Mazo 2:":
+                if (dude.getM2().getCartas().size() <= 3) {
+                    switch (x) {
+                        case "Minipekka":
+                            dude.getM1().getCartas().add(new Minipekka(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Especial"));
+                            break;
+                        case "Montapuerco":
+                            dude.getM1().getCartas().add(new Montapuerco(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Especial"));
+                            break;
+                        case "Golem":
+                            dude.getM1().getCartas().add(new Golem(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Baja",8,"Epica"));
+                            break;
+                        case "Leñador":
+                            dude.getM1().getCartas().add(new Leñador(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Legendaria"));
+                            break;
+                        case "Dragon Infernal":
+                            dude.getM1().getCartas().add(new Dragon_Infernal(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Media",4,"Legendaria"));
+                            break;
+                        case "Dragon":
+                            dude.getM1().getCartas().add(new Dragon(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Media",4,"Epica"));
+                            break;
+                        case "Gigante Noble":
+                            dude.getM1().getCartas().add(new Gigante_Noble(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Media",6,"Comun"));
+                            break;
+                        case "Pandilla de Duendes":
+                            dude.getM1().getCartas().add(new Pandilla_Duendes(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Alta",3,"Comun"));
+                            break;
+                    }
+                    JOptionPane.showMessageDialog(this, "Carta creada exitosamente");
+                } else {
+                    JOptionPane.showMessageDialog(this, "El mazo ya está lleno");
+                }
+                break;
+                
+            case "Mazo 3":
+                if (dude.getM3().getCartas().size() <= 3) {
+                    switch (x) {
+                        case "Minipekka":
+                            dude.getM1().getCartas().add(new Minipekka(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Especial"));
+                            break;
+                        case "Montapuerco":
+                            dude.getM1().getCartas().add(new Montapuerco(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Especial"));
+                            break;
+                        case "Golem":
+                            dude.getM1().getCartas().add(new Golem(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Baja",8,"Epica"));
+                            break;
+                        case "Leñador":
+                            dude.getM1().getCartas().add(new Leñador(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Alta",4,"Legendaria"));
+                            break;
+                        case "Dragon Infernal":
+                            dude.getM1().getCartas().add(new Dragon_Infernal(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Media",4,"Legendaria"));
+                            break;
+                        case "Dragon":
+                            dude.getM1().getCartas().add(new Dragon(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Media",4,"Epica"));
+                            break;
+                        case "Gigante Noble":
+                            dude.getM1().getCartas().add(new Gigante_Noble(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres","Media",6,"Comun"));
+                            break;
+                        case "Pandilla de Duendes":
+                            dude.getM1().getCartas().add(new Pandilla_Duendes(tf_nombrecarta.getText(),(int)js_dano.getValue(),(int)js_hp.getValue(),"Terrestres y Aereos","Alta",3,"Comun"));
+                            break;
+                    }
+                    JOptionPane.showMessageDialog(this, "Carta creada exitosamente");
+                } else {
+                    JOptionPane.showMessageDialog(this, "El mazo ya está lleno");
+                }
+                break;
+        }
+    }//GEN-LAST:event_b_createMouseClicked
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -456,11 +619,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_create;
     private javax.swing.JButton b_enter;
     private javax.swing.JButton b_register;
+    private javax.swing.JComboBox<String> box_mazo;
     private javax.swing.JComboBox<String> box_tipo;
     private javax.swing.JButton br_color;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -468,6 +632,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -478,7 +644,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_Registro;
     private javax.swing.JDialog jd_VentanaUsuario;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
@@ -493,4 +661,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tfr_usuario;
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> usuarios = new ArrayList();
+    Usuario dude;
 }

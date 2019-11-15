@@ -12,7 +12,7 @@ public class Golem extends Carta {
 
     @Override
     public String toString() {
-        return super.toString() + "Golem{" + '}';
+        return "Golem - " + super.toString();
     }
     
 }

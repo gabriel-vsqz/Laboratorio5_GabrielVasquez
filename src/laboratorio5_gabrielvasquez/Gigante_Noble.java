@@ -12,7 +12,7 @@ public class Gigante_Noble extends Carta {
 
     @Override
     public String toString() {
-        return super.toString() + "Gigante_Noble{" + '}';
+        return "Gigante_Noble - " + super.toString();
     }
     
 }

@@ -12,7 +12,7 @@ public class Dragon_Infernal extends Carta {
 
     @Override
     public String toString() {
-        return super.toString() + "Dragon_Infernal{" + '}';
+        return "Dragon_Infernal - " + super.toString();
     }
     
 }

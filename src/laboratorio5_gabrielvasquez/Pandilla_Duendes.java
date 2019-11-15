@@ -12,7 +12,7 @@ public class Pandilla_Duendes extends Carta {
 
     @Override
     public String toString() {
-        return super.toString() + "Pandilla_Duendes{" + '}';
+        return "Pandilla_Duendes - " + super.toString();
     }
     
 }
