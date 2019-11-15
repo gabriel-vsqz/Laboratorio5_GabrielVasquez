@@ -1,7 +1,6 @@
 package laboratorio5_gabrielvasquez;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Usuario {
@@ -13,18 +12,21 @@ public class Usuario {
     private Date nacimiento;
     private int edad;
     private Color color;
-    private ArrayList<Mazo> mazos = new ArrayList();
+    private Mazo m1;
+    private Mazo m2;
+    private Mazo m3;
 
     public Usuario() {
     }
 
+    //BORRAR LATER
     public Usuario(String nombre, String user, String password) {
         this.nombre = nombre;
         this.user = user;
         this.password = password;
     }
 
-    public Usuario(String nombre, String apellido, String user, String password, Date nacimiento, int edad, Color color) {
+    public Usuario(String nombre, String apellido, String user, String password, Date nacimiento, int edad, Color color, Mazo m1, Mazo m2, Mazo m3) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.user = user;
@@ -32,6 +34,9 @@ public class Usuario {
         this.nacimiento = nacimiento;
         this.edad = edad;
         this.color = color;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
     }
 
     public String getNombre() {
@@ -90,17 +95,33 @@ public class Usuario {
         this.color = color;
     }
 
-    public ArrayList<Mazo> getMazos() {
-        return mazos;
+    public Mazo getM1() {
+        return m1;
     }
 
-    public void setMazos(ArrayList<Mazo> mazos) {
-        this.mazos = mazos;
+    public void setM1(Mazo m1) {
+        this.m1 = m1;
+    }
+
+    public Mazo getM2() {
+        return m2;
+    }
+
+    public void setM2(Mazo m2) {
+        this.m2 = m2;
+    }
+
+    public Mazo getM3() {
+        return m3;
+    }
+
+    public void setM3(Mazo m3) {
+        this.m3 = m3;
     }
 
     @Override
     public String toString() {
-        return nombre;
+        return "Usuario{" + "user=" + user + '}';
     }
     
 }
