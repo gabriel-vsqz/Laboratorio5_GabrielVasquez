@@ -81,7 +81,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        return "Carta{" + "nombre=" + nombre + ", damage=" + damage + ", hp=" + hp + ", objetivo=" + objetivo + ", velocidad=" + velocidad + ", elixir=" + elixir + '}';
+        return nombre;
     }
     
 }

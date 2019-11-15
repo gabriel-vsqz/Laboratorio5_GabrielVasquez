@@ -32,7 +32,7 @@ public class Mazo {
 
     @Override
     public String toString() {
-        return "Mazo{" + "coste=" + coste + ", cartas=" + cartas + '}';
+        return "Mazo - " + "Coste: " + coste + ", Cartas: " + cartas + '}';
     }
 
 }

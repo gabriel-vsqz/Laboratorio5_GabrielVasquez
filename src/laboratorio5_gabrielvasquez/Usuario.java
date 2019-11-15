@@ -19,13 +19,6 @@ public class Usuario {
     public Usuario() {
     }
 
-    //BORRAR LATER
-    public Usuario(String nombre, String user, String password) {
-        this.nombre = nombre;
-        this.user = user;
-        this.password = password;
-    }
-
     public Usuario(String nombre, String apellido, String user, String password, Date nacimiento, int edad, Color color, Mazo m1, Mazo m2, Mazo m3) {
         this.nombre = nombre;
         this.apellido = apellido;

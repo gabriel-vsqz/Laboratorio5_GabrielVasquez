@@ -458,10 +458,10 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTree" name="jTree1">
+                    <Component class="javax.swing.JTree" name="jt_mazos">
                       <Properties>
                         <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
-                          <TreeModel code="Mazos"/>
+                          <TreeModel code="Mazos&#xa; Mazo 1&#xa; Mazo 2&#xa; Mazo 3"/>
                         </Property>
                       </Properties>
                     </Component>
