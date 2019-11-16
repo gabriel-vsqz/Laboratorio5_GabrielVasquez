@@ -53,6 +53,12 @@ public class Principal extends javax.swing.JFrame {
         jt_mazos = new javax.swing.JTree();
         jLabel17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        popup_tree = new javax.swing.JPopupMenu();
+        jmi_mostrar = new javax.swing.JMenuItem();
+        jmi_mod = new javax.swing.JMenuItem();
+        jd_Info = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_info = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         tf_username = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -215,6 +221,11 @@ public class Principal extends javax.swing.JFrame {
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 3");
         treeNode1.add(treeNode2);
         jt_mazos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_mazos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_mazosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jt_mazos);
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
@@ -338,6 +349,38 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jd_VentanaUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane2)
+                .addContainerGap())
+        );
+
+        jmi_mostrar.setText("Mostrar");
+        jmi_mostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_mostrarActionPerformed(evt);
+            }
+        });
+        popup_tree.add(jmi_mostrar);
+
+        jmi_mod.setText("Modificar");
+        popup_tree.add(jmi_mod);
+
+        ta_info.setColumns(20);
+        ta_info.setRows(5);
+        jScrollPane2.setViewportView(ta_info);
+
+        javax.swing.GroupLayout jd_InfoLayout = new javax.swing.GroupLayout(jd_Info.getContentPane());
+        jd_Info.getContentPane().setLayout(jd_InfoLayout);
+        jd_InfoLayout.setHorizontalGroup(
+            jd_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_InfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jd_InfoLayout.setVerticalGroup(
+            jd_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_InfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -486,141 +529,182 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_br_colorMouseClicked
 
     private void b_createMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_createMouseClicked
-        String x = (String) box_tipo.getSelectedItem();
-        Carta y;
-                
-        switch ((String) box_mazo.getSelectedItem()) {
+        int x = box_tipo.getSelectedIndex();
+        DefaultTreeModel m = (DefaultTreeModel) jt_mazos.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_tipo;
+        DefaultMutableTreeNode nodo_carta;
 
-            case "Mazo 1":
+        switch (box_mazo.getSelectedIndex()) {
+
+            case 0:
                 if (dude.getM1().getCartas().size() <= 3) {
+                    Carta y = null;
                     switch (x) {
-                        case "Minipekka":
+                        case 0:
                             y = new Minipekka(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Especial");
                             dude.getM1().getCartas().add(y);
                             break;
-                        case "Montapuerco":
+                        case 1:
                             y = new Montapuerco(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Especial");
                             dude.getM1().getCartas().add(y);
                             break;
-                        case "Golem":
+                        case 2:
                             y = new Golem(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Baja", 8, "Epica");
                             dude.getM1().getCartas().add(y);
                             break;
-                        case "Leñador":
+                        case 3:
                             y = new Leñador(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Legendaria");
                             dude.getM1().getCartas().add(y);
                             break;
-                        case "Dragon Infernal":
+                        case 4:
                             y = new Dragon_Infernal(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Media", 4, "Legendaria");
                             dude.getM1().getCartas().add(y);
                             break;
-                        case "Dragon":
+                        case 5:
                             y = new Dragon(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Media", 4, "Epica");
                             dude.getM1().getCartas().add(y);
                             break;
-                        case "Gigante Noble":
+                        case 6:
                             y = new Gigante_Noble(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Media", 6, "Comun");
                             dude.getM1().getCartas().add(y);
                             break;
-                        case "Pandilla de Duendes":
+                        case 7:
                             y = new Pandilla_Duendes(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Alta", 3, "Comun");
                             dude.getM1().getCartas().add(y);
                             break;
                     }
                     JOptionPane.showMessageDialog(this, "Carta creada exitosamente");
-                    
+                    nodo_tipo = new DefaultMutableTreeNode(y.getRango());
+                    nodo_carta = new DefaultMutableTreeNode(y);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(0)).add(nodo_tipo);
+                    nodo_tipo.add(nodo_carta);
+                    m.reload();
                 } else {
                     JOptionPane.showMessageDialog(this, "El mazo ya está lleno");
                 }
                 break;
 
-            case "Mazo 2:":
+            case 1:
                 if (dude.getM2().getCartas().size() <= 3) {
+                    Carta y = null;
                     switch (x) {
-                        case "Minipekka":
+                        case 0:
                             y = new Minipekka(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Especial");
                             dude.getM2().getCartas().add(y);
                             break;
-                        case "Montapuerco":
+                        case 1:
                             y = new Montapuerco(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Especial");
                             dude.getM2().getCartas().add(y);
                             break;
-                        case "Golem":
+                        case 2:
                             y = new Golem(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Baja", 8, "Epica");
                             dude.getM2().getCartas().add(y);
                             break;
-                        case "Leñador":
+                        case 3:
                             y = new Leñador(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Legendaria");
                             dude.getM2().getCartas().add(y);
                             break;
-                        case "Dragon Infernal":
+                        case 4:
                             y = new Dragon_Infernal(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Media", 4, "Legendaria");
                             dude.getM2().getCartas().add(y);
                             break;
-                        case "Dragon":
+                        case 6:
                             y = new Dragon(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Media", 4, "Epica");
                             dude.getM2().getCartas().add(y);
                             break;
-                        case "Gigante Noble":
+                        case 7:
                             y = new Gigante_Noble(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Media", 6, "Comun");
                             dude.getM2().getCartas().add(y);
                             break;
-                        case "Pandilla de Duendes":
+                        case 8:
                             y = new Pandilla_Duendes(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Alta", 3, "Comun");
                             dude.getM2().getCartas().add(y);
                             break;
                     }
                     JOptionPane.showMessageDialog(this, "Carta creada exitosamente");
-                    
+                    nodo_tipo = new DefaultMutableTreeNode(y.getRango());
+                    nodo_carta = new DefaultMutableTreeNode(y);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(1)).add(nodo_tipo);
+                    nodo_tipo.add(nodo_carta);
+                    m.reload();
                 } else {
                     JOptionPane.showMessageDialog(this, "El mazo ya está lleno");
                 }
                 break;
 
-            case "Mazo 3":
+            case 2:
                 if (dude.getM3().getCartas().size() <= 3) {
+                    Carta y = null;
                     switch (x) {
-                        case "Minipekka":
+                        case 0:
                             y = new Minipekka(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Especial");
                             dude.getM3().getCartas().add(y);
                             break;
-                        case "Montapuerco":
+                        case 1:
                             y = new Montapuerco(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Especial");
                             dude.getM3().getCartas().add(y);
                             break;
-                        case "Golem":
+                        case 2:
                             y = new Golem(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Baja", 8, "Epica");
                             dude.getM3().getCartas().add(y);
                             break;
-                        case "Leñador":
+                        case 3:
                             y = new Leñador(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Alta", 4, "Legendaria");
                             dude.getM3().getCartas().add(y);
                             break;
-                        case "Dragon Infernal":
+                        case 4:
                             y = new Dragon_Infernal(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Media", 4, "Legendaria");
                             dude.getM3().getCartas().add(y);
                             break;
-                        case "Dragon":
+                        case 5:
                             y = new Dragon(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Media", 4, "Epica");
                             dude.getM3().getCartas().add(y);
                             break;
-                        case "Gigante Noble":
+                        case 6:
                             y = new Gigante_Noble(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres", "Media", 6, "Comun");
                             dude.getM3().getCartas().add(y);
                             break;
-                        case "Pandilla de Duendes":
+                        case 7:
                             y = new Pandilla_Duendes(tf_nombrecarta.getText(), (int) js_dano.getValue(), (int) js_hp.getValue(), "Terrestres y Aereos", "Alta", 3, "Comun");
                             dude.getM3().getCartas().add(y);
                             break;
                     }
                     JOptionPane.showMessageDialog(this, "Carta creada exitosamente");
-                    
+                    nodo_tipo = new DefaultMutableTreeNode(y.getRango());
+                    nodo_carta = new DefaultMutableTreeNode(y);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(2)).add(nodo_tipo);
+                    nodo_tipo.add(nodo_carta);
+                    m.reload();
                 } else {
                     JOptionPane.showMessageDialog(this, "El mazo ya está lleno");
                 }
                 break;
         }
     }//GEN-LAST:event_b_createMouseClicked
+
+    private void jt_mazosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_mazosMouseClicked
+        if (evt.isMetaDown()) {
+            ta_info.setText("");
+            int row = jt_mazos.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_mazos.setSelectionRow(row);
+            Object v1 = jt_mazos.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Carta) {
+                carta_seleccionada = (Carta) nodo_seleccionado.getUserObject();
+                popup_tree.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jt_mazosMouseClicked
+
+    private void jmi_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_mostrarActionPerformed
+        jd_Info.setModal(true);
+        jd_Info.pack();
+        jd_Info.setLocationRelativeTo(this);
+        jd_Info.setVisible(true);
+        ta_info.append("Nombre: " + carta_seleccionada.getNombre() + "\nDaño: " + carta_seleccionada.getDamage() + "\nPuntos de Vida: " + carta_seleccionada.getHp() + "\nObjetivos: "
+                + carta_seleccionada.getObjetivo() + "\nVelocidad: " + carta_seleccionada.getVelocidad() + "\nCosto de Elixir: " + carta_seleccionada.getElixir());
+    }//GEN-LAST:event_jmi_mostrarActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -679,15 +763,21 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JDialog jd_Info;
     private javax.swing.JDialog jd_Registro;
     private javax.swing.JDialog jd_VentanaUsuario;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
+    private javax.swing.JMenuItem jmi_mod;
+    private javax.swing.JMenuItem jmi_mostrar;
     private javax.swing.JSpinner js_dano;
     private javax.swing.JSpinner js_hp;
     private javax.swing.JTree jt_mazos;
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JPasswordField pfr_contrasena;
+    private javax.swing.JPopupMenu popup_tree;
+    private javax.swing.JTextArea ta_info;
     private javax.swing.JTextField tf_nombrecarta;
     private javax.swing.JTextField tf_username;
     private javax.swing.JTextField tfr_apellido;
@@ -696,4 +786,6 @@ public class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> usuarios = new ArrayList();
     Usuario dude;
+    DefaultMutableTreeNode nodo_seleccionado;
+    Carta carta_seleccionada;
 }
