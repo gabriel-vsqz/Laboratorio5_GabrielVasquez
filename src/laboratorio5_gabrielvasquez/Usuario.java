@@ -15,11 +15,12 @@ public class Usuario {
     private Mazo m1;
     private Mazo m2;
     private Mazo m3;
+    private Clan clan;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String user, String password, Date nacimiento, int edad, Color color, Mazo m1, Mazo m2, Mazo m3) {
+    public Usuario(String nombre, String apellido, String user, String password, Date nacimiento, int edad, Color color, Mazo m1, Mazo m2, Mazo m3, Clan clan) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.user = user;
@@ -30,6 +31,7 @@ public class Usuario {
         this.m1 = new Mazo();
         this.m2 = new Mazo();
         this.m3 = new Mazo();
+        this.clan = clan;
     }
 
     public String getNombre() {
@@ -112,9 +114,17 @@ public class Usuario {
         this.m3 = m3;
     }
 
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "user=" + user + '}';
+        return user;
     }
     
 }
